@@ -411,6 +411,8 @@ function plugin$1(options) {
         // rewrite ![image](url) with the local path
         const src = options.outDir.startsWith('.') ? './' + path.relative(markdownFolder, assetFilePath) : assetFilePath;
         node.url = src;
+        node.url = path.basename(assetFilePath);
+
       }
     }, options.concurrency);
 
