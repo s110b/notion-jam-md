@@ -636,6 +636,10 @@ async function run(options) {
 
     const article = await notionModule.getArticle(page);
 
+    if (options.articlePath.includes('{name}')) {
+      article.name = article.name.replace(/\s+/g, '_');  
+    }
+
     const articlePath = format(options.articlePath, article, val => safeName(val));
     const assetsPath = format(options.assetsPath, article, val => safeName(val));
 
