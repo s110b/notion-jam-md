@@ -17,11 +17,17 @@ export default function plugin(frontmatter) {
       });
 
       const frontmatter = jsYaml.load(frontmatterNode.value);
+      delete frontmatter.author; // 删除 author 属性
+      delete frontmatter.icon_emoji;
+      delete frontmatter.position;
+      
       if (frontmatter.thumb === 'cover') frontmatter._thumbnail = frontmatter.cover_image;
       else if (frontmatter.thumb === 'icon') frontmatter._thumbnail = frontmatter.icon_image;
       else if (frontmatter.thumb === 'first') frontmatter._thumbnail = bodyImages[0];
       else if (/^\d+$/.test(frontmatter.thumb)) frontmatter._thumbnail = bodyImages[parseInt(frontmatter.thumb)+1];
       else frontmatter._thumbnail = frontmatter[frontmatter.thumb] || frontmatter.cover_image || bodyImages[0] || frontmatter.icon_image;
+
+      frontmatter.image = frontmatter[frontmatter.thumb] || frontmatter.cover_image || bodyImages[0] || frontmatter.icon_image;
 
       // update frontmatter
       frontmatterNode.value = jsYaml.dump(frontmatter);
