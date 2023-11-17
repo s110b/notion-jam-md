@@ -499,6 +499,8 @@ function plugin(frontmatter) {
       
       frontmatter.image = frontmatter[frontmatter.thumb] || frontmatter.cover_image || bodyImages[0] || frontmatter.icon_image;
 
+      delete frontmatter.cover_image;
+      delete frontmatter._thumbnail;
       // update frontmatter
       frontmatterNode.value = jsYaml.dump(frontmatter);
     }
