@@ -498,6 +498,8 @@ function plugin(frontmatter) {
       else frontmatter._thumbnail = frontmatter[frontmatter.thumb] || frontmatter.cover_image || bodyImages[0] || frontmatter.icon_image;
       
       frontmatter.image = frontmatter[frontmatter.thumb] || frontmatter.cover_image || bodyImages[0] || frontmatter.icon_image;
+      
+      frontmatter.image = frontmatter.image.replace(/.*[\/\\]/, '');
 
       delete frontmatter.cover_image;
       delete frontmatter._thumbnail;
