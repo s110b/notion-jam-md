@@ -15,6 +15,8 @@
 * meta信息中图片取值修改为image
 * md信息中图片取值去掉路径
 * 删掉不必要的meta信息中的author
+
+  
 **Sync pages from Notion to GitHub to be used as a static website ([JAM][jamstack])**
 
 - Notion pages are converted to markdown files.
