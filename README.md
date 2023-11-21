@@ -1,5 +1,5 @@
 
-![](./banner.fw.png)
+## 为适配hugo stack主题做了部分适配。
 
 # notion-jam
 <!-- badge -->
